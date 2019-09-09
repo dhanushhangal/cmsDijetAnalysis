@@ -1,0 +1,42 @@
+DEBUG 2019-09-09 20:38:12.142 UTC: 	 Executing command: 'submit'
+DEBUG 2019-09-09 20:38:12.143 UTC: 	 Found CRAB cache file /uscms/home/dhangal/.crab3
+DEBUG 2019-09-09 20:38:12.164 UTC: 	 Checking credentials
+DEBUG 2019-09-09 20:38:12.165 UTC: 	 Found proxy file /uscms/home/dhangal/x509up_u51907
+DEBUG 2019-09-09 20:38:12.165 UTC: 	 Getting proxy life time left
+DEBUG 2019-09-09 20:38:12.268 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/dhangal/x509up_u51907 -timeleft
+ output : 41571
+
+ error: 
+ retcode : 0
+DEBUG 2019-09-09 20:38:12.372 UTC: 	 Executing : 
+ command : voms-proxy-info -file /uscms/home/dhangal/x509up_u51907 -actimeleft
+ output : 41571
+
+ error: 
+ retcode : 0
+DEBUG 2019-09-09 20:38:12.372 UTC: 	 Proxy valid for 11:32:51 hours
+INFO 2019-09-09 20:38:12.373 UTC: 	 Will use CRAB configuration file crabDijetPbPbMC.py
+DEBUG 2019-09-09 20:38:12.373 UTC: 	 Loading CRAB configuration file.
+ERROR 2019-09-09 20:38:12.393 UTC: 	 Error while loading CRAB configuration:
+invalid syntax (crabDijetPbPbMC.py, line 20)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile
+ERROR 2019-09-09 20:38:12.393 UTC: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1909/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1909/bin/crab", line 145, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1909/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1909/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 311, in __init__
+    self.loadConfig(self.options.config, self.args)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1909/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 87, in loadConfig
+    raise ConfigurationException(configmsg)
+ConfigurationException: Error while loading CRAB configuration:
+invalid syntax (crabDijetPbPbMC.py, line 20)
+Please refer to https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3CommonErrors#Syntax_error_in_CRAB_configurati
+See the ./crab.log file for more details.
+The documentation about the CRAB configuration file can be found in https://twiki.cern.ch/twiki/bin/view/CMSPublic/CRAB3ConfigurationFile

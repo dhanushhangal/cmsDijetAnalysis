@@ -244,9 +244,10 @@ void GeneratorLevelForestReader::Initialize(){
   } else if (fDataType == kPbPbMC){ // PbPb MC
     fSkimTree->SetBranchStatus("pprimaryVertexFilter",1);
     fSkimTree->SetBranchAddress("pprimaryVertexFilter",&fPrimaryVertexFilterBit,&fPrimaryVertexBranch);
-    fSkimTree->SetBranchStatus("HBHENoiseFilterResultRun2Loose",1);
-    fSkimTree->SetBranchAddress("HBHENoiseFilterResultRun2Loose",&fHBHENoiseFilterBit,&fHBHENoiseBranch);
-    
+    //fSkimTree->SetBranchStatus("HBHENoiseFilterResultRun2Loose",1);
+    //fSkimTree->SetBranchAddress("HBHENoiseFilterResultRun2Loose",&fHBHENoiseFilterBit,&fHBHENoiseBranch);
+    fHBHENoiseFilterBit = 1;
+
     // Some branches have different naming for 2015 and 2018 data
     if(fReadMode > 2000){
       fSkimTree->SetBranchStatus("collisionEventSelectionAODv2",1); // 2018 syntax (or not v2?)

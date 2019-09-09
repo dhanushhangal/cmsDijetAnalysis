@@ -1,11 +1,12 @@
 from WMCore.Configuration import Configuration
 config = Configuration()
 
-system = 'RecoReco'
-infoString = 'skims_allButInclusive_2018-08-15_part6'
+system = 'GenGen'
+infoString = 'PbPbMC_jettrackcorr_mtd_upgrade_Sep9'
 card='cardDijetPbPbMC.input'
 output='PbPbMC_' + system + '_' + infoString + '.root'
-inputFile='PbPbMC_Pythia6HydjetCymbal_list_part05.txt'
+inputFile='PythiaHydjetMC_MTD_forests_Sep8.txt'
+fileLocation='2'  # Locations: 0 = Purdue, 1 = CERN, 2 = Search with xrootd
 
 config.section_("General")
 config.General.requestName = 'PbPbMC_' + system + '_' + infoString
@@ -16,23 +17,23 @@ config.section_("JobType")
 config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = 'PSet.py'
 config.JobType.scriptExe = 'compileAndRun.sh'
-config.JobType.scriptArgs = ['card='+card,'output='+output]
+config.JobType.scriptArgs = ['card='+card,'output='+output,'location='+fileLocation]
 config.JobType.inputFiles = ['FrameworkJobReport.xml','dijet5TeV.tar.gz',card]
 config.JobType.outputFiles = [output]
-config.JobType.maxJobRuntimeMin = 1440
+config.JobType.maxJobRuntimeMin = 500
 config.JobType.maxMemoryMB = 2500
 
 config.section_("Data")
 config.Data.userInputFiles = open(inputFile).readlines() 
 config.Data.splitting = 'FileBased'
-config.Data.unitsPerJob = 1
+config.Data.unitsPerJob = 5
 config.Data.totalUnits = len(config.Data.userInputFiles)
-config.Data.outputPrimaryDataset = 'diJetPbPbMCHistograms'
-config.Data.outLFNDirBase = '/store/user/jviinika/'+config.General.requestName
+config.Data.outputPrimaryDataset = 'incPbPbMCHistograms'
+config.Data.outLFNDirBase = '/store/user/dhangal/'+config.General.requestName
 config.Data.publication = False
 
 config.section_("Site")
-config.Site.whitelist = ['T2_US_Purdue']
+config.Site.whitelist = ['T3_US_FNALLPC']
 config.Site.storageSite = 'T3_US_FNALLPC'
 
 #"really" force crab to only run at whitelisted sites
